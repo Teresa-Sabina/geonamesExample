@@ -1,5 +1,5 @@
 	$('#btnRun').click(function() {
-
+		alert("K");
 		$.ajax({
 			url: "libs/php/getCountryInfo.php",
 			type: 'POST',
@@ -31,53 +31,3 @@
 
 	});
 
-	$('#btnSubmit1').click(function() {
-		$.ajax({
-			url: "http://api.geonames.org/findNearby?lat=47.3&lng=9&username=flightltd",
-			success: function(result) {
-				alert("OKK"+result);
-				$('#div1').html(result);
-			
-			},
-		
-		}); 
-	
-
-	});
-
-
-
-	$('#btnSubmit2').click(function() {
-		$.ajax({
-			url: "http://api.geonames.org/findNearbyPostalCodes?lat=47&lng=9&username=flightltd",
-			success: function(result) {
-				var dp = new DOMParser();
-				xDoc = dp.parseFromString(result,"text/xml");
-				alert("OKK"+xDoc.childNode[0]);
-				document.getElementById('div1').innerhtml=xDoc;
-			
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				// your error code
-			}
-		}); 
-	
-
-	});
-
-
-	$('#btnSubmit3').click(function() {
-		$.ajax({
-			url: "http://api.geonames.org/wikipediaSearch?q=london&maxRows=10&username=flightltd",
-			success: function(result) {
-				alert("OKK"+result);
-				$('#div1').text(result);
-			
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				// your error code
-			}
-		}); 
-	
-
-	});
