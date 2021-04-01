@@ -5,7 +5,7 @@
 
 	$executionStartTime = microtime(true);
 
-	$url='http://api.geonames.org/findNearbyJSON?lat=47.3&lng=9&username=flightltd';
+	$url='http://api.geonames.org/findNearbyJSON?country='.$_REQUEST['country'] .'&lat=47.3&lng=9&username=flightltd';
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
