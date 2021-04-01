@@ -1,10 +1,10 @@
 	$('#btnSubmit1').click(function() {
 		alert("K");
 		$.ajax({
-			url: "http://api.geonames.org/findNearbyJSON?lat=47.3&lng=9&username=flightltd",
+			url: "libs/php/FindNearBy.php",
 			success: function(result) {
 				console.log(JSON.stringify(result));
-				if (result["geonames"] != "") {
+				if (result.status.name=="ok") {
 				alert("OKK"+result);
 					$('#txtCountry').html(result["geonames"][0]['countryName']);
 					$('#txtCountryCode').html(result["geonames"][0]['countryCode']);
@@ -25,11 +25,11 @@
 
 	$('#btnSubmit2').click(function() { alert("OK");
 		$.ajax({
-			url: "http://api.geonames.org/findNearbyPostalCodesJSON?lat=47&lng=9&username=flightltd",
+			url: "libs/php/FindNearByPostalCode.php",
 			success: function(result) {
 				console.log(JSON.stringify(result));
 
-				if (result["postalCodes"] != "") {
+				if (result.status.name=="ok") {
 				alert("OKK"+result);
 
 					$('#txtCountry').html(result["postalCodes"][0]['postalCode']);
@@ -53,10 +53,10 @@
 	$('#btnSubmit3').click(function() {
 alert("K");
 		$.ajax({
-			url: "http://api.geonames.org/wikipediaSearchJSON?q=London&maxRows=10&username=flightltd",
+			url: "libs/php/WikipediaSearch.php",
 			success: function(result) {
 				console.log(JSON.stringify(result));
-				if (result["geonames"] != "") {
+				if (result.status.name=="ok") {
 				alert("OKK"+result);
 					$('#txtCountry').html(result["geonames"][0]['summary']);
 					$('#txtCountryCode').html(result["geonames"][0]['countryCode']);
